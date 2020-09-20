@@ -9,7 +9,7 @@ import Filters from '../../components/Filters';
 const BASE_URL = 'https://sds1-jrestevesx.herokuapp.com';
 
 const Records = () => {
-    const [recordsResponse, setRecordsResponse] = useState<recordsResponse>();
+    const [recordResponse, setRecordsResponse] = useState<recordsResponse>();
     const [activePage, setActivePage] = useState(0);
 
     useEffect(() => {
@@ -35,7 +35,7 @@ const Records = () => {
                     </tr>
                 </thead>
                 <tbody>
-                    {recordsResponse?.content.map(record => (
+                    {recordResponse?.content.map(record => (
                         <tr key={record.id}>
                             <td>{formatDate(record.moment)}</td>
                             <td>{record.name}</td>
@@ -50,7 +50,7 @@ const Records = () => {
             <Pagination
                 activePage={activePage}
                 goToPage={handlePageChange}
-                totalPages={recordsResponse?.totalPages}
+                totalPages={recordResponse?.totalPages}
             />
         </div>
     );
